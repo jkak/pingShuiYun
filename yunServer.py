@@ -25,12 +25,10 @@ def char():
 def search(words):
     result = ''
     for word in words:
-        print result
         result += word + ' : '
         try:
             # "观": [["平", "十四寒", "观看"], ["上",  "15翰",  "楼观"]]
             for items in data[word]:
-                print "items: %s" % items
                 if len(items[2]) == 0:
                     result += items[0] + " " + items[1]
                 else:
