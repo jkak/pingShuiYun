@@ -9,17 +9,77 @@
 
 ### 一、使用方法
 
-平仄查询
+支持两种方式查询
+
+* 使用终端命令查询
+* 使用浏览器查询
+
+
+
+平仄查询涉及的2个脚本：
+
+* yunServer.py	用于启动查询服务端口
+* load.sh 启动脚本，操纵yunServer.py
+
+
+
+#### 1.1 启停服务
 
 ```shell
+# git clone https://github.com/jkak/pingShuiYun.git
+# cd pingShuiYun
+
+# ./load.sh
+usage ./load.sh [start|stop|status]
+
+# ./load.sh start
+started...
+
+# ./load.sh status
+python yunServer.py data/baseCharDict.json
+
+started...
+
+# ./load.sh stop
+
+stoped...
+```
+
+
+
+#### 1.2 查询操作
+
+终端查询
+
+```shell
+# search
+curl "http://localhost:5000/char?q=明月松间照，清泉石上流"
+明 : 平 八庚; <br>
+月 : 入 六月; <br>
+松 : 平 二冬; <br>
+间 : 去 十六谏(间开); 平 十五删(中间); <br>
+照 : 去 十八啸; <br>
+， : <br>
+清 : 平 八庚; <br>
+泉 : 平 一先; <br>
+石 : 入 十一陌; <br>
+上 : 上 二十二养; 去 二十三漾; <br>
+流 : 平 十一尤; <br>
+
 
 ```
 
 
 
+浏览器查询：
+
+![search](pics/search.png)
+
+
+
 ### 二、生成操作
 
-#### 2.1 原始文件：
+#### 2.1 原始文件
 
 * 原始数据为word文档，来源于搜韵网。
 * 下载链接：https://sou-yun.com/QR.aspx
